@@ -1,0 +1,102 @@
+<body>
+    
+
+<div class="container">
+    <div class="navbar">
+
+        <nav>
+            <app-navbar></app-navbar>
+        </nav>
+
+    </div>
+</div>
+<div class="small-container cart-page">
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+        <tr *ngFor="let i of cart">
+            <td>
+                <div class="cart-info">
+                    <img [src]="trouveImg(i.nameProduct)">
+                    <div>
+                        <p>{{i.nameProduct}}</p>
+                        <small>Price: {{i.prix}}DT</small>
+                        <br>
+                        <button (click)="DeleteCart(i.id)" style="
+                        padding: 10px 20px;
+                        color: #fff;
+                        font-size: 14px;
+                        font-weight: 600;
+                        border: 0;
+                        border-radius: 5px;
+                        box-shadow: none;
+                        text-transform: uppercase;
+                        background-color: red;
+                        cursor: pointer;
+                    ">Remove</button>
+                    </div>
+                </div>
+            </td>
+            <td><input type="number" [value]="i.quantite" [(ngModel)]="i.quantite"></td>
+            <td>{{i.quantite*i.prix}}DT</td>
+        </tr>
+    </table>
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>Total</td>
+                <td>{{sommeProduct()}}DT</td>
+            </tr>
+            <tr>
+                <td *ngIf="ia=='true'"><button (click)="AddDemande()" style="position: relative;
+                    padding: 0 50px;
+                    color: #fff;
+                    line-height: 50px;
+                    height: 50px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    font-weight: 600;
+                    border: 0;
+                    border-radius: 30px;
+                    box-shadow: none;
+                    text-transform: uppercase;
+                    background-color: aqua; ">Demander</button></td>
+                <td *ngIf="ia=='false'">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"style="position: relative;
+                    padding: 0 50px;
+                    color: #fff;
+                    line-height: 50px;
+                    height: 50px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    font-weight: 600;
+                    border: 0;
+                    border-radius: 30px;
+                    box-shadow: none;
+                    text-transform: uppercase;
+                    background-color: aqua;">
+                        Demander
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-left: 340px; width: 900px; height: 780px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+            </div>
+            <div class="modal-body" style="width: 900px; margin-top: 50; background-color: white;">
+                <button type="button" class="btn-close btn-close-red" data-bs-dismiss="modal" aria-label="Close" style="margin-left: 865px; margin-top: 10px;"></button>
+                <app-login></app-login>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<app-footer></app-footer>

@@ -1,0 +1,83 @@
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <nav>
+                <app-navbar></app-navbar>
+            </nav>
+
+            <!-- <img src="assets/images/menu.png" class="menu-icon" id="menutoggle" > -->
+        </div>
+        <div class="row row2">
+            <app-slide-bar></app-slide-bar>
+        </div>
+    </div>
+</div>
+
+<!-- Feadtued Categories -->
+
+<div class="categories">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <!-- <img src="assets/images/category-1.jpg"> -->
+            </div>
+            <div class="col-3">
+                <!-- <img src="assets/images/category-2.jpg"> -->
+            </div>
+            <div class="col-3">
+                <!-- <img src="assets/images/category-3.jpg"> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Products -->
+
+<div class="small-container">
+    <h2 class="title">Nos Produits</h2>
+    <div class="row">
+        <div class="card" style="width: 18rem; padding-bottom: 50px;" *ngFor="let i of objectProduct | search:searchtext | paginate:{
+            itemsPerPage: cardSize,
+            currentPage: page,
+            totalItems: count
+        };
+        let j=index" class="100">
+            <a [routerLink]="['product-details',i.id]"><img [src]="trouveImg(i.nom)" class="card-img-top" alt="...">
+            
+            <div class="card-body">
+                <p class="card-text" style="color: orange;">{{i.nom}}</p>
+                <p class="card-text" class="text-danger" style="text-align: center;">{{i.prix}}DT</p>
+            </div>
+        </a>
+        </div>
+        <pagination-controls *ngIf="objectProduct.length>9" previousLabel="prev" nextLabel="next"
+            (pageChange)="onCardDataChange($event)" class="container d-flex align-items-center justify-content-center">
+        </pagination-controls>
+    </div>
+</div>
+<!-- Brands -->
+
+<div class="brands">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-5">
+                <img src="assets/images/sumsung-removebg-preview.png">
+            </div>
+            <div class="col-5">
+                <img src="assets/images/iphone1-removebg-preview.png">
+            </div>
+            <div class="col-5">
+                <img src="assets/images/asus-removebg-preview.png">
+            </div>
+            <div class="col-5">
+                <img src="assets/images/dell-removebg-preview.png">
+            </div>
+            <div class="col-5">
+                <img src="assets/images/huw-removebg-preview.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<app-footer></app-footer>

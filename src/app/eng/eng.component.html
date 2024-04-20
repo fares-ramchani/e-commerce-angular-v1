@@ -1,0 +1,39 @@
+<body>
+  <div class="container">
+    <div class="title">Registration Produit</div>
+    <div class="content">
+      <form [formGroup]="productform" (ngSubmit)="saveProduct()" novalidate>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Nom Product</span>
+            <input type="text" placeholder="Enter nom du produit :" formControlName="nom" required>
+
+          </div>
+          <div class="input-box">
+            <span class="details">Prix</span>
+            <input type="text" placeholder="Enter prix :" formControlName="prix" required>
+
+          </div>
+          <div class="input-box">
+            <span class="details">Description</span>
+            <input type="text-area" placeholder="Description :" formControlName="discription" required>
+
+          </div>
+          <div class="input-box">
+            <span class="details">Quantité</span>
+            <input type="number" placeholder="Quantité:" formControlName="quantite" required>
+
+          </div>
+          <div class="input-box">
+            <span class="details">Image du produit</span>
+            <input type="file" (change)="fileChange($event)">
+          </div>
+          <div class="button">
+            <input type="submit" value="Register">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>

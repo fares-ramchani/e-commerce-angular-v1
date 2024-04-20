@@ -1,0 +1,51 @@
+<div style="background-color: #fff0db;">
+<div class="container">
+    <div class="navbar">
+
+        <nav>
+            <app-navbar></app-navbar>
+        </nav>
+
+    </div>
+</div>
+
+<!-- Single Products -->
+<div class="small-container single-product" style="background-color: #fff0db;">
+    <div class="row">
+        <div class="col-2">
+            <div class="small-img-row">
+                <div class="small-img-col">
+                    <div class="col-2">
+                        <img [src]="trouveImg(product.nom)" class="card-img-top" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <h1>{{product.nom}}</h1>
+            <h4>{{product.prix}}DT</h4>
+            <button type="button" (click)="addCart(product.nom, product.prix)" [ngStyle]="{
+                'position': 'relative',
+                'padding': '0 50px',
+                'color': '#fff',
+                'line-height': '50px',
+                'height': '50px',
+                'font-size': '16px',
+                'font-weight': '600',
+                'border': '0',
+                'border-radius': '30px',
+                'box-shadow': 'none',
+                'text-transform': 'uppercase',
+                'background-color': product.quantite <= 0 ? 'red' : 'aqua',
+                'cursor': product.quantite <= 0 ? 'not-allowed' : 'pointer'
+            }" [disabled]="product.quantite <= 0">{{ product.quantite <= 0 ? 'Hors Stock' : '+ Ajouter Au Panier'}}<i *ngIf="product.quantite <= 0" class="fa-regular fa-circle-xmark" style="margin-left:10px;"></i></button>
+            
+            <h3>Product Details <i class="fa fa-indent"></i></h3>
+            <br>
+            <p>{{product.discription}}</p>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Footer -->
+<app-footer></app-footer>

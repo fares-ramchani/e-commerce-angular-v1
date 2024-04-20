@@ -1,0 +1,44 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Prix Total</th>
+            <th scope="col">Status</th>
+            <th scope="col">Client</th>
+            <th scope="col">Produits</th>
+            <th></th>
+            <th></th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of Demande| paginate:{
+            itemsPerPage: cardSize,
+            currentPage: page,
+            totalItems: count
+        };" >
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.prixTotal}}</td>
+            <td>{{i.statue}}</td>
+            <td>{{i.client}}</td>
+            <td *ngFor="let j of trouve(i.id)">
+                <div style="display: flex; flex-direction: row;"><p style="color: red;">Nom : </p><p>{{j.nameProduct}}</p></div>
+                <div style="display: flex; flex-direction: row;"><p style="color: red;">Prix : </p><p>{{j.prix}}</p></div>
+                <div style="display: flex; flex-direction: row;"><p style="color: red;">Quantite : </p><p>{{j.quantite}}</p></div>
+            </td>
+            <td><button class="btn btn-success" (click)="AccepterDemande(i.id)" [disabled]="i.statue === 'Refuser'"><i class="fa-solid fa-check"></i></button></td>
+            <td>
+                <button class="btn btn-danger" [disabled]="i.statue === 'Aceepter'" (click)="RefusDemande(i.id)">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </button>
+              </td>              
+        </tr>
+    </tbody>
+</table>
+<div>
+<pagination-controls *ngIf="Demande.length>4" previousLabel="prev" nextLabel="next"
+    (pageChange)="onCardDataChange($event)" class="container d-flex align-items-center justify-content-center">
+</pagination-controls>
+</div>

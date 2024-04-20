@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light px-0" style="width: 1808; height: 117;">
+    <div class="container-fluid">
+        <div class="logo">
+            <a [routerLink]="['']">
+                <img src="assets/images/logo.png" alt="logo" width="120px" class="logo1">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+
+                    <a class="nav-link active" aria-current="page" routerLink=""><i class="fa-solid fa-house"></i>
+                        Home</a>
+                </li>
+            </ul>
+            <div>
+                <form class="d-flex" id="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </form>
+            </div>
+            <div class="cart-section">
+                <a id="kadhya" [routerLink]="['/cart']">
+                    <img src="assets/images/cart.png" width="30px" height="30px">
+                    <span class="cart-count">{{ count }}</span>
+                </a>
+            </div>
+            <div class="user-section">
+                <div class="dropdown" *ngIf="ia=='true'">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false" [(ngModel)]="userName" style="background-color: #007bff;">
+                        {{ userName }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="" (click)="deconnexion()" style="color: red;">Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="ia=='false'">
+                    <button class="btn btn-primary" (click)="connexion()">Connexion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

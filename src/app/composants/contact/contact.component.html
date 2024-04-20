@@ -1,0 +1,27 @@
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+        
+        </div>
+        <div class="form-container sign-in-container">
+            <form role="form" [formGroup]="formLogin" (ngSubmit)="login1()">
+                <h2>Contactez-nous</h2>
+                <input type="text" placeholder="Nom" formControlName="username" required/>
+                <input type="text" placeholder="E-mail" formControlName="password" required />
+                <input type="text" placeholder="Sujet" formControlName="password" required />
+                <textarea name="" id="" cols="30" rows="10" placeholder="Message" style="margin-bottom: 10px;"></textarea>
+                <button style="margin-bottom: 5px;">Envoyer</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1></h1>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>

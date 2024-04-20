@@ -1,0 +1,21 @@
+<body>
+    <div class="container">
+      <div class="title">Ajouter Image Promo</div>
+      <div class="content">
+        <form [formGroup]="ProductPromoForm"  (ngSubmit)="saveProduct()" novalidate>
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Image du produit</span>
+              <input type="file" (change)="fileChange($event)">
+            </div>
+            
+          <div class="button">
+            <input type="submit" value="Register" >
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  </body>
+

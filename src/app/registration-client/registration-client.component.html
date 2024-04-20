@@ -1,0 +1,51 @@
+<body>
+    <div class="container">
+      <div class="title">Créer un nouveau compte</div>
+      <div class="content">
+        <form  [formGroup]="clientForm" (ngSubmit)="saveClient()" novalidate>
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Nom</span>
+              <input type="text" placeholder="Enter votre nom" formControlName="nom" required>
+              <small *ngIf="clientForm.controls['nom'].errors && clientForm.controls['nom'].touched" class="text-danger">
+                {{getErrorsMessage('prenom',clientForm.controls['nom'].errors)}}</small>
+            </div>
+            <div class="input-box">
+              <span class="details">Prenom</span>
+              <input type="text" placeholder="Enter votre prenom" formControlName="prenom" required>
+              <small *ngIf="clientForm.controls['prenom'].errors && clientForm.controls['prenom'].touched" class="text-danger">
+                 {{getErrorsMessage('prenom',clientForm.controls['prenom'].errors)}}</small>
+            </div>
+            <div class="input-box">
+              <span class="details">Telephone</span>
+              <input type="number" placeholder="Enter votre Numéro de telephone" formControlName="tel" required>
+              <small *ngIf="clientForm.controls['tel'].errors && clientForm.controls['tel'].touched" class="text-danger">
+                {{getErrorsMessage('tel',clientForm.controls['tel'].errors)}}</small>
+            </div>
+            <div class="input-box">
+              <span class="details">Adresse</span>
+              <input type="text" placeholder="Enter votre adresse" formControlName="adresse" required>
+              <small *ngIf="clientForm.controls['adresse'].errors && clientForm.controls['adresse'].touched" class="text-danger">
+                {{getErrorsMessage('adresse',clientForm.controls['adresse'].errors)}}</small>
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="email" placeholder="Enter votre email" formControlName="mail" required>
+              <small *ngIf="clientForm.controls['mail'].errors && clientForm.controls['mail'].touched" class="text-danger">
+                {{getErrorsMessage('mail',clientForm.controls['mail'].errors)}}</small>
+            </div>
+            <div class="input-box">
+              <span class="details">Mot de pasee</span>
+              <input type="text" placeholder="Enter votre mot de passe" formControlName="mdp" required>
+              <small *ngIf="clientForm.controls['mdp'].errors && clientForm.controls['mdp'].touched" class="text-danger">
+                {{getErrorsMessage('mdp',clientForm.controls['mdp'].errors)}}</small>
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="Register" >
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  </body>

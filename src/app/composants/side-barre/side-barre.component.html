@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav [ngClass]="!collapsed ? 'sidenav-collapsed':''">
+    <div class="sidebar-top" >
+      <div >
+        <button style="background-color: transparent; border: 0;" (click)="togglecollase()" >
+          <img src="assets/images/logo.png" width="100px"  alt="">
+        </button>
+        
+        <button style="margin-left: 120px;border: none;" (click)="closeSidenav()" *ngIf="collapsed">
+          <img src="assets/images/preview-removebg-preview.png" width="30px" style="background-color: #fff0db;  ">
+      </button>
+      </div> 
+                
+    </div> 
+    <div class="sidebar-links" >
+        <ul>
+          <li>
+            <a routerLink="/AdminHomeComponent/ListesProduitsComponent" routerLinkActive="active" title="products">
+              <img src="assets/images/open-folder-outline-icon.png" width="35px"   alt="">
+              <span class="link hide" *ngIf="collapsed">Liste Produits</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/AdminHomeComponent/DemandeDetailsComponent" routerLinkActive="active" title="Messages">
+              <img src="assets/images/open-folder-outline-icon.png" width="35px"   alt="">
+              <span class="link hide" *ngIf="collapsed">Liste de Demande</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/AdminHomeComponent/EngComponent" routerLinkActive="active" title="home/new produit">
+              <img src="assets/images/plus-removebg-preview.png" width="60px" style="margin-left: -15px;"  alt="">
+              <span class="link hide" *ngIf="collapsed">Ajouter produit</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/AdminHomeComponent/ProductPromoComponent" routerLinkActive="active" title="Messages">
+              <img src="assets/images/plus-removebg-preview.png" width="60px" style="margin-left: -15px;"  alt="">
+              <span class="link hide" *ngIf="collapsed">Ajouter produit promo</span>
+            </a>
+          </li>
+          <li style="margin-top: 210px;"><a class="dropdown-item" href="" (click)="deconnexion()" style="color: red;">Déconnexion</a>
+          </li>
+        </ul>
+      </div>
+    
+  </nav>
+  <script src="script.js"></script> 
+  
+</body>
+</html>
